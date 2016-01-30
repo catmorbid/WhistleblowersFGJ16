@@ -8,6 +8,9 @@ public class PlayerControls {
     private static string m_btnSecondary = "Fire2";
     private static bool m_cursorVisible = true;
     private static Camera m_camera;
+    private static float m_longPressThreshold = 0.5f;
+    private static float m_primaryPressStart;
+    private static float m_secondaryPressStart;
     public static Texture2D InteractionCursorTexture
     {
         get
@@ -29,6 +32,7 @@ public class PlayerControls {
             if (CrossPlatformInputManager.GetButtonDown(m_btnPrimary))
             {
                 Debug.Log("Primary Action Down");
+                m_primaryPressStart = Time.realtimeSinceStartup;
                 return true;
                 
             }
@@ -68,13 +72,46 @@ public class PlayerControls {
         }
     }
 
+    private static float deltaPrimaryPressed
+    {
+        get
+        {
+            return Time.realtimeSinceStartup - m_primaryPressStart;
+        }
+    }
+
+    public static bool OnPrimaryActionTap
+    {
+        get
+        {
+            if (!PrimaryActionDown && PrimaryActionUp)
+            {
+                if (deltaPrimaryPressed < m_longPressThreshold)
+                    return true;
+            }
+            return false;
+        }
+    }
+    
+    public static bool OnPrimaryActionLongPress
+    {
+        get
+        {
+            if (!PrimaryActionDown && CrossPlatformInputManager.GetButton(m_btnPrimary))
+            {
+                return (deltaPrimaryPressed >= m_longPressThreshold);
+            }
+            return false;
+        }
+    }
+
     public static bool PrimaryActionUp
     {
         get
         {
             if (CrossPlatformInputManager.GetButtonUp(m_btnPrimary))
             {
-                Debug.Log("Primary Action Up");
+                //Debug.Log("Primary Action Up");
                 return true;
 
             }
@@ -102,4 +139,8 @@ public class PlayerControls {
                 CrossPlatformInputManager.SetButtonUp(m_btnSecondary);
         }
     }
+
+    public static bool SecondaryActionTap { get; internal set; }
+    public static bool SecondaryActionLongPress { get; internal set; }
+    public static bool SecondaryActionUp { get; internal set; }
 }

@@ -3,13 +3,14 @@ using System.Collections;
 using UnityStandardAssets.CrossPlatformInput;
 
 [RequireComponent(typeof(Camera))]
-public class InteractionDetector : MonoBehaviour {
+public class InteractionDetector : MonoBehaviour
+{
 
     public Camera MyCamera
     {
         get
         {
-          return GetComponent<Camera>();
+            return GetComponent<Camera>();
         }
     }
     public LayerMask InteractableLayer;
@@ -18,38 +19,58 @@ public class InteractionDetector : MonoBehaviour {
     {
         get
         {
-            m_interactableCollider = getInteractableCollider();
             return (m_interactableCollider != null);
         }
     }
 
     private Collider m_interactableCollider;
+    private bool AllowPrimaryInteraction;
+    private bool AllowSecondaryInteraction;
 
     public Interactable Interactable
     {
         get
         {
-            Interactable n = m_interactableCollider.GetComponent<Interactable>();
-            return n;
+            return m_interactableCollider.GetComponent<Interactable>();
         }
     }
 
-	// Use this for initialization
-	void Start () {
-	}
-	
-	// Update is called once per frame
-	void FixedUpdate () {
+    // Use this for initialization
+    void Start()
+    {
 
-        if (InteractableInRange)
+    }
+
+    void Update()
+    {
+        if (PlayerControls.PrimaryActionUp)
+        {
+            AllowPrimaryInteraction = true;
+        }
+        if (PlayerControls.SecondaryActionUp)
+        {
+            AllowSecondaryInteraction = true;
+        }
+
+        if (InteractableInRange )
         {
             PlayerControls.ShowCursor(true);
-            if (PlayerControls.PrimaryActionDown)
+            if (PlayerControls.OnPrimaryActionLongPress && AllowPrimaryInteraction)
             {
-                Debug.Log("Interactable in range");
+                Debug.Log("Primary Interaction long press");
+                Interactable.InteractLongPress(transform);
+                AllowPrimaryInteraction = false;
+            }
+            else if (PlayerControls.OnPrimaryActionTap && AllowPrimaryInteraction)
+            {
+                Debug.Log("Primary Interaction");
                 Interactable.Interact(transform);
             }
-            if (PlayerControls.SecondaryActionDown)
+            if (PlayerControls.SecondaryActionLongPress && AllowSecondaryInteraction)
+            {
+                AllowSecondaryInteraction = false;
+            }
+            else if (PlayerControls.SecondaryActionTap && AllowSecondaryInteraction)
             {
                 Debug.Log("Secondary Interaction");
                 Interactable.AltInteract(transform);
@@ -59,13 +80,19 @@ public class InteractionDetector : MonoBehaviour {
         {
             PlayerControls.ShowCursor(false);
         }
+    }
 
+    // Update is called once per frame
+    void FixedUpdate()
+    {
+        m_interactableCollider = getInteractableCollider();
     }
 
     private Collider getInteractableCollider()
     {
         RaycastHit hit;
-        if (Physics.Linecast(transform.position, MyCamera.transform.forward * range, out hit, InteractableLayer )) {
+        if (Physics.Linecast(transform.position, MyCamera.transform.forward * range, out hit, InteractableLayer))
+        {
             return hit.collider;
         }
         return null;

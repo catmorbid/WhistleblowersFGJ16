@@ -24,8 +24,9 @@ public class DraggableRigidbody : Interactable {
 
     private SpringJoint m_SpringJoint;
 
-    public override void Interact(Transform otherTransform)
+    public override void InteractLongPress(Transform otherTransform)
     {
+        Busy = true;
         Debug.Log(gameObject.name + " interacting");
         if (!m_SpringJoint)
         {
@@ -60,11 +61,12 @@ public class DraggableRigidbody : Interactable {
         while (!PlayerControls.PrimaryActionUp)
         {
             PlayerControls.ShowCursor(true);
-            Debug.Log("drag");
+            //Debug.Log("drag");
             Transform cam = PlayerCamera.ActiveCamera.transform;
             m_SpringJoint.transform.position = cam.position + cam.forward * distance + cam.up*0.2f;
             yield return null;
         }
+        Busy = false;
         if (m_SpringJoint.connectedBody)
         {
             m_SpringJoint.connectedBody.drag = oldDrag;
