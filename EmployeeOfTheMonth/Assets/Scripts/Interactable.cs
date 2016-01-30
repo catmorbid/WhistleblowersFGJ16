@@ -3,6 +3,7 @@ using System.Collections;
 
 public abstract class Interactable : MonoBehaviour {
 
+    public string m_description;
     private bool m_interaction;
     public bool Busy
     {
@@ -26,7 +27,8 @@ public abstract class Interactable : MonoBehaviour {
     }
     public virtual void AltInteract(Transform interactorTransform)
     {
-        Debug.Log("Secondary Interaction not implemented!");
+        PlayerText.ShowSpeechBubble( m_description, 10f );
+        //Debug.Log("Secondary Interaction not implemented!");
     }
     public virtual void AltInteractLongPress(Transform interactorTransform)
     {

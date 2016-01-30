@@ -167,4 +167,12 @@ public class TaskManager : MonoBehaviour {
     {
         Debug.Log( "TODO: task sorting" );
     }
+    public static void RegisterTrigger(TaskTrigger trigger)
+    {
+        trigger.TaskTriggerEvent += m_singleton.OnTaskTriggerFired;
+    }
+    public void OnTaskTriggerFired(TaskTrigger trigger, TaskObject obj)
+    {
+
+    }
 }
