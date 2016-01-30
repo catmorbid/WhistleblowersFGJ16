@@ -108,11 +108,11 @@ public class Task
 public class TaskManager : MonoBehaviour {
 
     public static TaskManager m_singleton;
-    private static Color[] m_taskTypeColors = new Color[] {Color.red, Color.blue, Color.grey };
+    private static Color32[] m_taskTypeColors = new Color32[] {new Color32(228,6,74,255), new Color32(0,143,255,255), new Color32(180,180,180,255) };
     private List<Task> m_taskList = new List<Task>();
     private Text m_text;
 
-    public Color GetTaskColor(Task.TaskType t)
+    public Color32 GetTaskColor(Task.TaskType t)
     {
         try {
             return m_taskTypeColors[ (int) t ];
@@ -132,7 +132,10 @@ public class TaskManager : MonoBehaviour {
     // Use this for initialization
     void Start () {
         m_text = GetComponent<Text>();
-	}
+        AddTask( new Task( "Walk around", Task.TaskType.Personal ) );
+        AddTask( new Task( "Drink coffee", Task.TaskType.Personal ) );
+        AddTask( new Task( "Write an essay on Father's philantrophistic deeds", Task.TaskType.Important ) );
+    }
 	
 	// Update is called once per frame
 	void Update () {
@@ -144,8 +147,8 @@ public class TaskManager : MonoBehaviour {
         string taskstring = "";
         foreach (Task t in m_taskList)
         {
-            string c = ColorUtility.ToHtmlStringRGBA(GetTaskColor(t.Type));
-            taskstring += String.Format( "<color={0}>{1}</color>\n", c, t.Name );
+            string c = ColorUtility.ToHtmlStringRGB(GetTaskColor(t.Type));
+            taskstring += String.Format( "<color=#{0}>{1}</color>\n", c, t.Name );
         }
 
         return taskstring;
