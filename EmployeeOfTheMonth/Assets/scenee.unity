@@ -1039,8 +1039,8 @@ Light:
   serializedVersion: 6
   m_Type: 2
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 8
-  m_Range: 0.66
+  m_Intensity: 2.27
+  m_Range: 0.65
   m_SpotAngle: 30
   m_CookieSize: 10
   m_Shadows:
@@ -1233,7 +1233,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400006, guid: 1be113def93128d46bad20ac754996ff, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.7071068
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 400006, guid: 1be113def93128d46bad20ac754996ff, type: 3}
       propertyPath: m_LocalRotation.z
@@ -1241,7 +1241,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400006, guid: 1be113def93128d46bad20ac754996ff, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.7071067
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 400004, guid: 1be113def93128d46bad20ac754996ff, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1be113def93128d46bad20ac754996ff, type: 3}
