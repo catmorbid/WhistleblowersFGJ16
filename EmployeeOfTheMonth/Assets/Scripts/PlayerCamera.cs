@@ -21,7 +21,7 @@ public class PlayerCamera : MonoBehaviour {
 
     void Start()
     {
-        PlayerControls.HideCursor(true);
+        PlayerControls.ShowCursor(false);
         PlayerControls.LockCursor(true);
     }
 

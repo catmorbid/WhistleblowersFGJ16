@@ -6,7 +6,16 @@ using System;
 public class PlayerControls {
     private static string m_btnPrimary = "Fire1";
     private static string m_btnSecondary = "Fire2";
+    private static bool m_cursorVisible = true;
     private static Camera m_camera;
+    public static Texture2D InteractionCursorTexture
+    {
+        get
+        {
+            return (Texture2D) Resources.Load("sprites/interact_icon");
+        }
+    }
+    public static Vector2 InteractionCursorHotspot = Vector2.zero;
 
     public PlayerControls()
     {
@@ -34,9 +43,20 @@ public class PlayerControls {
         }
     }
 
-    public static void HideCursor(bool hide)
+    //internal static void SetInteractionCursor()
+    //{
+    //    Texture2D tex = InteractionCursorTexture;
+    //    if (tex != null)
+    //        Cursor.SetCursor(InteractionCursorTexture, InteractionCursorHotspot, CursorMode.Auto);
+    //}
+
+    public static void ShowCursor(bool show)
     {
-        Cursor.visible = !hide;
+        if (show != m_cursorVisible)
+        {
+            GameObject.Find("Cursor").GetComponent<UnityEngine.UI.Image>().enabled = show;
+            m_cursorVisible = show;
+        }
     }
     public static void LockCursor(bool locked)
     {

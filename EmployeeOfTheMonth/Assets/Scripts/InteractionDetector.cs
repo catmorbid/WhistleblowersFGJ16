@@ -36,7 +36,6 @@ public class InteractionDetector : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-	
 	}
 	
 	// Update is called once per frame
@@ -44,15 +43,24 @@ public class InteractionDetector : MonoBehaviour {
 
         if (InteractableInRange)
         {
+            PlayerControls.ShowCursor(true);
             if (PlayerControls.PrimaryActionDown)
             {
                 Debug.Log("Interactable in range");
                 Interactable.Interact(transform);
             }
-            
+            if (PlayerControls.SecondaryActionDown)
+            {
+                Debug.Log("Secondary Interaction");
+                Interactable.AltInteract(transform);
+            }
         }
-	
-	}
+        else
+        {
+            PlayerControls.ShowCursor(false);
+        }
+
+    }
 
     private Collider getInteractableCollider()
     {

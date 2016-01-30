@@ -59,6 +59,7 @@ public class DraggableRigidbody : Interactable {
         Camera mainCamera = PlayerCamera.ActiveCamera;
         while (!PlayerControls.PrimaryActionUp)
         {
+            PlayerControls.ShowCursor(true);
             Debug.Log("drag");
             Transform cam = PlayerCamera.ActiveCamera.transform;
             m_SpringJoint.transform.position = cam.position + cam.forward * distance + cam.up*0.2f;
