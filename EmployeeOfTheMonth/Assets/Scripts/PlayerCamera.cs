@@ -25,4 +25,15 @@ public class PlayerCamera : MonoBehaviour {
         PlayerControls.LockCursor(true);
     }
 
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            Debug.Log( "Esc pressed" );
+            Debug.Log( "CursorLockstate " + PlayerControls.IsCursorLocked );
+            PlayerControls.LockCursor( !PlayerControls.IsCursorLocked );
+            Debug.Log( "CursorLockstate " + PlayerControls.IsCursorLocked );
+        }
+    }
+
 }

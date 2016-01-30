@@ -62,13 +62,32 @@ public class PlayerControls {
             m_cursorVisible = show;
         }
     }
+    private static bool m_locked;
+    public static bool IsCursorLocked
+    {
+        get
+        {
+            return m_locked;
+        }
+        set
+        {
+            LockCursor( value );
+        }
+    }
     public static void LockCursor(bool locked)
     {
-        if (locked)
+        m_locked = locked;
+        if ( locked )
+        {
+            Debug.Log( "Cursor Locked" );
             Cursor.lockState = CursorLockMode.Locked;
+            Cursor.visible = false;
+        }
         else
         {
-            Cursor.lockState = CursorLockMode.Confined;
+            Debug.Log( "Cursor Unlocked" );
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
         }
     }
 
