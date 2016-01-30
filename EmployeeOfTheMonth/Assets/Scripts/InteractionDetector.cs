@@ -91,7 +91,8 @@ public class InteractionDetector : MonoBehaviour
     private Collider getInteractableCollider()
     {
         RaycastHit hit;
-        if (Physics.Linecast(transform.position, MyCamera.transform.forward * range, out hit, InteractableLayer))
+        Debug.DrawLine( MyCamera.transform.position, MyCamera.transform.position + MyCamera.transform.forward * range );
+        if (Physics.Linecast(MyCamera.transform.position, MyCamera.transform.position + MyCamera.transform.forward * range, out hit, InteractableLayer))
         {
             return hit.collider;
         }

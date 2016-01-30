@@ -3,19 +3,20 @@ using System.Collections;
 using UnityStandardAssets.CrossPlatformInput;
 using System;
 
-public class PlayerControls {
+public class PlayerControls
+{
     private static string m_btnPrimary = "Fire1";
     private static string m_btnSecondary = "Fire2";
     private static bool m_cursorVisible = true;
     private static Camera m_camera;
-    private static float m_longPressThreshold = 0.5f;
+    private static float m_longPressThreshold = 0.25f;
     private static float m_primaryPressStart;
     private static float m_secondaryPressStart;
     public static Texture2D InteractionCursorTexture
     {
         get
         {
-            return (Texture2D) Resources.Load("sprites/interact_icon");
+            return (Texture2D) Resources.Load( "sprites/interact_icon" );
         }
     }
     public static Vector2 InteractionCursorHotspot = Vector2.zero;
@@ -25,27 +26,7 @@ public class PlayerControls {
 
     }
 
-    public static bool PrimaryActionDown
-    {
-        get
-        {
-            if (CrossPlatformInputManager.GetButtonDown(m_btnPrimary))
-            {
-                Debug.Log("Primary Action Down");
-                m_primaryPressStart = Time.realtimeSinceStartup;
-                return true;
-                
-            }
-            return false;
-        }
-        set
-        {
-            if (value)
-                CrossPlatformInputManager.SetButtonDown(m_btnPrimary);
-            else
-                CrossPlatformInputManager.SetButtonUp(m_btnPrimary);
-        }
-    }
+
 
     //internal static void SetInteractionCursor()
     //{
@@ -54,11 +35,11 @@ public class PlayerControls {
     //        Cursor.SetCursor(InteractionCursorTexture, InteractionCursorHotspot, CursorMode.Auto);
     //}
 
-    public static void ShowCursor(bool show)
+    public static void ShowCursor( bool show )
     {
-        if (show != m_cursorVisible)
+        if ( show != m_cursorVisible )
         {
-            GameObject.Find("Cursor").GetComponent<UnityEngine.UI.Image>().enabled = show;
+            GameObject.Find( "Cursor" ).GetComponent<UnityEngine.UI.Image>().enabled = show;
             m_cursorVisible = show;
         }
     }
@@ -74,7 +55,7 @@ public class PlayerControls {
             LockCursor( value );
         }
     }
-    public static void LockCursor(bool locked)
+    public static void LockCursor( bool locked )
     {
         m_locked = locked;
         if ( locked )
@@ -99,36 +80,65 @@ public class PlayerControls {
         }
     }
 
+    private static float deltaSecondaryPressed
+    {
+        get
+        {
+            return Time.realtimeSinceStartup - m_secondaryPressStart;
+        }
+    }
+
     public static bool OnPrimaryActionTap
     {
         get
         {
-            if (!PrimaryActionDown && PrimaryActionUp)
+            if ( !PrimaryActionDown && PrimaryActionUp )
             {
-                if (deltaPrimaryPressed < m_longPressThreshold)
+                if ( deltaPrimaryPressed < m_longPressThreshold )
                     return true;
             }
             return false;
         }
     }
-    
+
     public static bool OnPrimaryActionLongPress
     {
         get
         {
-            if (!PrimaryActionDown && CrossPlatformInputManager.GetButton(m_btnPrimary))
+            if ( !PrimaryActionDown && CrossPlatformInputManager.GetButton( m_btnPrimary ) )
             {
-                return (deltaPrimaryPressed >= m_longPressThreshold);
+                return ( deltaPrimaryPressed >= m_longPressThreshold );
             }
             return false;
         }
     }
 
+    public static bool PrimaryActionDown
+    {
+        get
+        {
+            if ( CrossPlatformInputManager.GetButtonDown( m_btnPrimary ) )
+            {
+                Debug.Log( "Primary Action Down" );
+                m_primaryPressStart = Time.realtimeSinceStartup;
+                return true;
+
+            }
+            return false;
+        }
+        set
+        {
+            if ( value )
+                CrossPlatformInputManager.SetButtonDown( m_btnPrimary );
+            else
+                CrossPlatformInputManager.SetButtonUp( m_btnPrimary );
+        }
+    }
     public static bool PrimaryActionUp
     {
         get
         {
-            if (CrossPlatformInputManager.GetButtonUp(m_btnPrimary))
+            if ( CrossPlatformInputManager.GetButtonUp( m_btnPrimary ) )
             {
                 //Debug.Log("Primary Action Up");
                 return true;
@@ -142,24 +152,57 @@ public class PlayerControls {
     {
         get
         {
-            if (CrossPlatformInputManager.GetButtonDown(m_btnSecondary))
+            if ( CrossPlatformInputManager.GetButtonDown( m_btnSecondary ) )
             {
-                Debug.Log("Secondary Action Down");
+                Debug.Log( "Secondary Action Down" );
+                m_secondaryPressStart = Time.realtimeSinceStartup;
                 return true;
-                
+
             }
             return false;
         }
         set
         {
-            if (value)
-                CrossPlatformInputManager.SetButtonDown(m_btnSecondary);
+            if ( value )
+                CrossPlatformInputManager.SetButtonDown( m_btnSecondary );
             else
-                CrossPlatformInputManager.SetButtonUp(m_btnSecondary);
+                CrossPlatformInputManager.SetButtonUp( m_btnSecondary );
         }
     }
 
-    public static bool SecondaryActionTap { get; internal set; }
-    public static bool SecondaryActionLongPress { get; internal set; }
-    public static bool SecondaryActionUp { get; internal set; }
+    public static bool SecondaryActionTap
+    {
+        get
+        {
+            if ( !SecondaryActionDown && SecondaryActionUp )
+            {
+                if ( deltaSecondaryPressed < m_longPressThreshold )
+                    return true;
+            }
+            return false;
+        }
+    }
+    public static bool SecondaryActionLongPress
+    {
+        get
+        {
+            if ( !SecondaryActionDown && CrossPlatformInputManager.GetButton( m_btnSecondary) )
+            {
+                return ( deltaSecondaryPressed >= m_longPressThreshold );
+            }
+            return false;
+        }
+
+    }
+    public static bool SecondaryActionUp
+    {
+        get
+        {
+            if ( CrossPlatformInputManager.GetButtonUp( m_btnSecondary ) )
+            {
+                return true;
+            }
+            return false;
+        }
+    }
 }

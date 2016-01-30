@@ -7,24 +7,40 @@ public class InteractableDoor : Interactable
     public Vector3 OpenPosition;
     public Vector3 ClosePosition;
     private bool m_open = false;
+    private bool m_busy = false;
+
+    protected override void Awake()
+    {
+        base.Awake();
+    }
+    // Use this for initialization
+    protected override void Start()
+    {
+        base.Start();
+    }
 
     public override void Interact( Transform interactorTransform )
     {
+        base.Interact(interactorTransform);
         Debug.Log( "Interacting with door" );
-        if ( m_open )
+        if ( !m_busy )
         {
-            Debug.Log( "Door Closing" );
-            StartCoroutine( "SetDoorStatus", false );
-        }
-        else
-        {
-            Debug.Log( "Door Opening" );
-            StartCoroutine( "SetDoorStatus", true );
+            if ( m_open )
+            {
+                Debug.Log( "Door Closing" );
+                StartCoroutine( "SetDoorStatus", false );
+            }
+            else
+            {
+                Debug.Log( "Door Opening" );
+                StartCoroutine( "SetDoorStatus", true );
+            }
         }
     }
 
     public IEnumerator SetDoorStatus( bool open )
     {
+        m_busy = true;
         Vector3 target;
         if ( open )
             target = OpenPosition;
@@ -36,14 +52,15 @@ public class InteractableDoor : Interactable
         float d = (target - transform.localPosition).magnitude;
         while ( d > 0.01f )
         {
-            Debug.Log( "Distance " + d + "Transform " + transform.localPosition + " target " + target );
+            //Debug.Log( "Distance " + d + "Transform " + transform.localPosition + " target " + target );
             Vector3 dif = target - transform.localPosition;
             transform.Translate( dif * Time.deltaTime, Space.Self );
             yield return null;
-            d = (target - transform.localPosition).magnitude;
+            d = ( target - transform.localPosition ).magnitude;
         }
-        Debug.Log( "Done" );
-        
+        m_busy = false;
+        //Debug.Log( "Done" );
+
     }
 
 }
