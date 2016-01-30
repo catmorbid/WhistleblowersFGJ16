@@ -9,7 +9,8 @@ public class GameClock : MonoBehaviour {
     private GameObject m_hoursObject;
     private float m_hourOffset = -90;
     public float BaseTimeMultiplier = 1f;
-    private float m_time;
+    private float m_time = 0f;
+    private float m_updateFrequency = 10f;
 
     private float Hours
     {
@@ -42,14 +43,23 @@ public class GameClock : MonoBehaviour {
 	
 	// Update is called once per frame
 	void FixedUpdate () {
-        m_time = Time.time;
+        //if (m_time+Time.time >= m_time + m_updateFrequency)
+        if (true)
+        {
+            m_time = Time.time;
 
-        float hourAngle = (Hours) % 12 * 30  + m_hourOffset;
-        float minuteAngle = (Minutes % 60) * 6;
+            int hourAngle = (int)((Hours) + m_hourOffset) / 360;
+            int minuteAngle = (int)Minutes;
 
-        m_hoursObject.transform.Rotate( 0f, hourAngle, 0f );
-        m_minutesObject.transform.Rotate( 0f, minuteAngle, 0f);
-        Debug.Log( string.Format( "Time is: {0}:{1}:{2}", Hours, Minutes, m_time % 60f) );
+            //m_hoursObject.transform.Rotate( 0f, hourAngle, 0f );
+
+            //m_minutesObject.transform.Rotate( 0f, minuteAngle, 0f );
+            //m_minutesObject.transform.Rotate()
+            Debug.Log( string.Format( "Time is: {0:C2}:{1:C3}:{2:C0}", Hours, Minutes, m_time % 60f ) );
+            Debug.Log( "Hour angle " + hourAngle );
+            Debug.Log( "Minute angle " + minuteAngle );
+        }
+        
 	}
     public static float GetTime()
     {
