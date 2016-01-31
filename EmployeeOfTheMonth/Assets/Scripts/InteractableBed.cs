@@ -13,8 +13,18 @@ public class InteractableBed : Interactable {
         base.Start();
     }
 
-    // Update is called once per frame
-    void Update () {
-	
-	}
+    public override void Interact( Transform interactorTransform )
+    {
+        base.Interact( interactorTransform );
+        if (GameClock.State != GameClock.DayState.SleepBegin)
+        {
+            PlayerText.ShowSpeechBubble( "No, it's not time to sleep yet. No I cannot. I will not.", 5f );                
+        }
+        else
+        {
+            PlayerText.ShowSpeechBubble( "Yes, it's time to sleep now. Yes. I will do that.", 5f );
+            GameClock.EndDay();
+        }
+    }
+
 }

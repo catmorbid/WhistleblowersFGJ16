@@ -27,6 +27,7 @@ public class DraggableRigidbody : Interactable {
     public override void InteractLongPress(Transform otherTransform)
     {
         Busy = true;
+        PlayerControls.CursorSprite = PlayerControls.GrabCursorSprite;
         Debug.Log(gameObject.name + " interacting");
         if (!m_SpringJoint)
         {
@@ -67,6 +68,7 @@ public class DraggableRigidbody : Interactable {
             yield return null;
         }
         Busy = false;
+        PlayerControls.CursorSprite = PlayerControls.InteractionCursorSprite;
         if (m_SpringJoint.connectedBody)
         {
             m_SpringJoint.connectedBody.drag = oldDrag;

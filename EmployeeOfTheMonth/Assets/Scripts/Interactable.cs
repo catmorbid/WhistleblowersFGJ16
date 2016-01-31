@@ -1,13 +1,25 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public abstract class Interactable : MonoBehaviour {
+public class Interactable : MonoBehaviour {
 
     public event ObjectInteractedAction ObjectInteractionEvent;
     public delegate void ObjectInteractedAction( Interactable obj );
     public Goals.Objects InteractableObjectType;
     public string m_description;
+    public string interactionMessage;
     private bool m_interaction;
+    public string Description
+    {
+        get
+        {
+            return m_description;
+        }
+        set
+        {
+            m_description = value;
+        }
+    }
     public bool Busy
     {
         get
@@ -40,6 +52,10 @@ public abstract class Interactable : MonoBehaviour {
         {
             Debug.Log( "Firing interaction event" );
             ObjectInteractionEvent( this );
+        }
+        if (interactionMessage != null)
+        {
+            PlayerText.ShowSpeechBubble( interactionMessage, interactionMessage.Length / 60f );
         }
     }
     public virtual void InteractLongPress(Transform interactorTransform)

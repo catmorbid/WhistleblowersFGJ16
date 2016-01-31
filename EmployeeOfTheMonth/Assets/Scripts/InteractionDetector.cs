@@ -63,7 +63,7 @@ public class InteractionDetector : MonoBehaviour
             }
             else if (PlayerControls.OnPrimaryActionTap && AllowPrimaryInteraction)
             {
-                Debug.Log("Primary Interaction");
+                Debug.Log("Primary Interaction");                
                 Interactable.Interact(transform);
             }
             if (PlayerControls.SecondaryActionLongPress && AllowSecondaryInteraction)

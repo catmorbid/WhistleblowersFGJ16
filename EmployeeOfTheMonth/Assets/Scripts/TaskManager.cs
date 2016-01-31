@@ -9,16 +9,40 @@ public class Objective
 {
     Goals.Objects m_object;
     Goals.Triggers m_trigger;
+    Objective m_secondaryObjective;
 
-    public Objective(Goals.Objects obj)
+    public Objective( Goals.Objects obj )
     {
         m_object = obj;
         m_trigger = Goals.Triggers.None;
     }
-    public Objective(Goals.Objects obj, Goals.Triggers trigger)
+    public Objective( Goals.Objects obj, Goals.Triggers trigger )
     {
         m_object = obj;
         m_trigger = trigger;
+    }
+    public Objective (Goals.Objects obj, Objective secondary)
+    {
+        m_object = obj;
+        m_secondaryObjective = secondary;
+    }
+
+    public bool HasSecondary
+    {
+        get
+        {
+            return m_secondaryObjective != null;
+        }
+    }
+
+    public void UseSecondary()
+    {
+        if (HasSecondary)
+        {
+            m_object = m_secondaryObjective.m_object;
+            m_trigger = m_secondaryObjective.m_trigger;
+            m_secondaryObjective = m_secondaryObjective.m_secondaryObjective;
+        }
     }
 
     public Goals.Objects GoalObject
@@ -39,32 +63,39 @@ public static class Goals
     public enum Objects
     {
         None,
-        CoffeeMug,        
+        EmptyMug,
+        FilledCoffeeMug,
         Computer,
         Notepad,
         Toilet,
         Sink,
         Newspaper,
-        OfficeDoor,        
+        OfficeDoor,
         ExitDoor,
         Booze,
-        Food,        
+        Food,
+        CookedFood,
         Sofa,
         Bed,
         Shower,
-        Radio
+        Radio,
+        Phone,
+        Letter,
+        Cabinet,
+        VacuumTube,
+        Poster
     }
     public enum Triggers
     {
         None,
         Mailbin,
         CoffeeMaker,
-        Archive,
         Trashbin,
         Toilet,
         Sink,
         Oven,
-        VacuumTube
+        VacuumTube,
+        Cabinet
     }
 }
 
@@ -72,7 +103,7 @@ public class Reward
 {
     private float m_reward;
     private float m_lose;
-    public Reward(float win, float lose)
+    public Reward( float win, float lose )
     {
         m_reward = win;
         m_lose = lose;
@@ -91,19 +122,19 @@ public class Reward
 
 public class TimeConstraint
 {
-    private TaskTime m_startTime;
-    private TaskTime m_endTime;
-    public TimeConstraint(TaskTime startTime, TaskTime endTime)
+    private float m_startTime;
+    private float m_endTime;
+    public TimeConstraint( TaskTime duration )
     {
-        m_startTime = startTime;
-        m_endTime = endTime;
+        m_startTime = GameClock.GetTime();
+        m_endTime = m_startTime + duration.seconds;
     }
 
-    public bool TimeLeft
+    public bool HasTimeLeft
     {
         get
         {
-            return ( m_endTime - m_startTime ).seconds > 0f;
+            return ( m_endTime - GameClock.GetTime() > 0f );
         }
     }
 
@@ -112,16 +143,6 @@ public struct TaskTime
 {
     public int hours;
     public int minutes;
-
-    public static TaskTime Now
-    {
-        get
-        {
-            TaskTime t = new TaskTime();
-            t.seconds = Time.time;
-            return t;
-        }
-    }
 
     public TaskTime( int hours, int minutes )
     {
@@ -137,8 +158,8 @@ public struct TaskTime
         }
         set
         {
-            hours = (int)(value / 3600);
-            minutes = ( int) ( ( value % 3600 ) / 60 );
+            hours = (int) ( value / 3600 );
+            minutes = (int) ( ( value % 3600 ) / 60 );
         }
     }
 
@@ -160,9 +181,6 @@ public class Task
         Important,
         Optional
     }
-
-    public float stressOnSuccess = 1f;
-    public float stressOnFailure = -1f;
 
     private string m_taskName;
     private TaskType m_taskType;
@@ -194,12 +212,11 @@ public class Task
         }
     }
 
-    public float TimeRemaining
+    public TimeConstraint Time
     {
         get
         {
-            Debug.Log( "Todo time remaining" );
-            return 0;
+            return m_timeConstraint;
         }
     }
 
@@ -223,7 +240,23 @@ public class Task
 
     internal bool Resolve()
     {
+        if (m_objective.HasSecondary)
+        {
+            m_objective.UseSecondary();
+            return false;
+        }
         PlayerScore.ModifyStress( m_reward.GetReward() );
+        return true;
+    }
+    public bool Fail()
+    {
+        
+        PlayerScore.ModifyStress( m_reward.GetPenalty() );
+        if ( m_reward.GetPenalty() > 0 )
+        {
+            PlayerText.ShowSpeechBubble( "Oh no, oh no oh no no no no I failed, no I don't want to fail...", 3f );
+            //Play fail sound
+        }
         return true;
     }
 
@@ -233,20 +266,10 @@ public class Task
     }
 }
 
-public class TriggerTask : Task
-{
-    private string m_trigger;
-    private string m_object;
-    public TriggerTask(string taskName, TaskType type, string objectName, string triggerName ) : base(taskName, type)
-    {
-        
-    }
-}
-
 public class InteractTask : Task
 {
     private string m_object;
-    public InteractTask(string taskName, TaskType type, string objectName ) : base(taskName, type)
+    public InteractTask( string taskName, TaskType type, string objectName ) : base( taskName, type )
     {
 
     }
@@ -282,15 +305,40 @@ public class TaskManager : MonoBehaviour
     void Start()
     {
         m_text = GetComponent<Text>();
-        AddTask( new Task( "Drink coffee", Task.TaskType.Personal, new Objective(Goals.Objects.CoffeeMug), new Reward(-10,10), new TimeConstraint(TaskTime.Now, new TaskTime(10,0) )));
-        AddTask( new Task( "Write an essay on Father's philantrophistic deeds", Task.TaskType.Important, new Objective(Goals.Objects.Computer), new Reward(-5,5), new TimeConstraint(new TaskTime(10,0), new TaskTime(15,30) ) ));
-        AddTask( new Task( "Open the Door", Task.TaskType.Optional, new Objective(Goals.Objects.OfficeDoor ), new Reward(-1,0), null ));
+        //AddTask( new Task( "Drink coffee", Task.TaskType.Personal, new Objective( Goals.Objects.CoffeeMug ), new Reward( -10, 10 ), new TimeConstraint( new TaskTime( 10, 0 ) ) ) );
+        //AddTask( new Task( "Write an essay on Father's philantrophistic deeds", Task.TaskType.Important, new Objective( Goals.Objects.Computer ), new Reward( -5, 5 ), new TimeConstraint( new TaskTime( 10, 0 ), new TaskTime( 15, 30 ) ) ) );
+        //AddTask( new Task( "Open the Door", Task.TaskType.Optional, new Objective( Goals.Objects.OfficeDoor ), new Reward( -1, 0 ), null ) );
     }
 
+    private float m_lastUpdate = 0f;
+    private float m_updateFrequency = 10f;
     // Update is called once per frame
     void Update()
     {
         m_text.text = CreateTasksString();
+        updateTasks();
+
+    }
+
+    private void updateTasks()
+    {
+        if ( m_lastUpdate + m_updateFrequency > +Time.realtimeSinceStartup )
+        {
+            for ( int i = 0; i < m_taskList.Count; i++ )
+            {
+                Task t = m_taskList[i];
+                if ( !t.Time.HasTimeLeft )
+                {
+                    if ( t.Fail() )
+                    {
+                        Debug.Log( "Task ran out of time and failed! " );
+                        m_taskList.Remove( t );
+                        i--;
+                    }
+                }
+            }
+            m_lastUpdate = Time.realtimeSinceStartup;
+        }
     }
 
     public string CreateTasksString()
@@ -310,6 +358,11 @@ public class TaskManager : MonoBehaviour
         m_singleton.m_taskList.Add( newTask );
         m_singleton.sortTasks();
     }
+    public static void AddTask( Task[] tasks )
+    {
+        m_singleton.m_taskList.AddRange( tasks );
+        m_singleton.sortTasks();
+    }
     public static void RemoveTask( Task taskToRemove )
     {
         m_singleton.m_taskList.Remove( taskToRemove );
@@ -318,7 +371,7 @@ public class TaskManager : MonoBehaviour
     {
         Debug.Log( "TODO: task sorting" );
     }
-    public static void RegisterInteraction(Interactable obj)
+    public static void RegisterInteraction( Interactable obj )
     {
         obj.ObjectInteractionEvent += m_singleton.OnObjectInteracted;
     }
@@ -326,13 +379,13 @@ public class TaskManager : MonoBehaviour
     {
         trigger.TaskTriggerEvent += m_singleton.OnTaskTriggerFired;
     }
-    public void OnObjectInteracted(Interactable obj)
+    public void OnObjectInteracted( Interactable obj )
     {
         Debug.Log( "Handling interactions" );
-        for (int i=0; i < m_taskList.Count;i++ )
+        for ( int i = 0; i < m_taskList.Count; i++ )
         {
             Task t = m_taskList[i];
-            if (t.hasObjective(obj.InteractableObjectType))
+            if ( t.hasObjective( obj.InteractableObjectType ) )
             {
                 if ( t.Resolve() )
                 {

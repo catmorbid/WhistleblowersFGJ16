@@ -2,6 +2,7 @@
 using System.Collections;
 using UnityStandardAssets.CrossPlatformInput;
 using System;
+using UnityEngine.UI;
 
 public class PlayerControls
 {
@@ -12,11 +13,19 @@ public class PlayerControls
     private static float m_longPressThreshold = 0.25f;
     private static float m_primaryPressStart;
     private static float m_secondaryPressStart;
-    public static Texture2D InteractionCursorTexture
+
+    public static Sprite GrabCursorSprite
     {
         get
         {
-            return (Texture2D) Resources.Load( "sprites/interact_icon" );
+            return Resources.Load<Sprite>( "sprites/grab_icon" );
+        }
+    }
+    public static Sprite InteractionCursorSprite
+    {
+        get
+        {
+            return Resources.Load<Sprite>( "sprites/interact_icon2" );
         }
     }
     public static Vector2 InteractionCursorHotspot = Vector2.zero;
@@ -34,6 +43,18 @@ public class PlayerControls
     //    if (tex != null)
     //        Cursor.SetCursor(InteractionCursorTexture, InteractionCursorHotspot, CursorMode.Auto);
     //}
+
+    public static Sprite CursorSprite
+    {
+        get
+        {
+            return GameObject.Find( "Cursor" ).GetComponent<UnityEngine.UI.Image>().sprite;
+        }
+        set
+        {
+            GameObject.Find( "Cursor" ).GetComponent<UnityEngine.UI.Image>().sprite = value;
+        }
+    }
 
     public static void ShowCursor( bool show )
     {
@@ -186,7 +207,7 @@ public class PlayerControls
     {
         get
         {
-            if ( !SecondaryActionDown && CrossPlatformInputManager.GetButton( m_btnSecondary) )
+            if ( !SecondaryActionDown && CrossPlatformInputManager.GetButton( m_btnSecondary ) )
             {
                 return ( deltaSecondaryPressed >= m_longPressThreshold );
             }

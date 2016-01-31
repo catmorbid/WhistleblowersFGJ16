@@ -23,6 +23,11 @@ public class InteractableDoor : Interactable
     {
         base.Interact(interactorTransform);
         Debug.Log( "Interacting with door" );
+        if ((int)GameClock.State < (int) GameClock.DayState.WorkStart)
+        {
+            PlayerText.ShowSpeechBubble("No, I can't go to work yet. I must finish my chores. And be on time. Yes, on time!", 5f);
+        }
+        else
         if ( !m_busy )
         {
             if ( m_open )
