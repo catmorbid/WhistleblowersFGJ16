@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System;
 
 public class InteractableVacuumTube : Interactable {
 
@@ -18,19 +19,22 @@ public class InteractableVacuumTube : Interactable {
 
     void Update()
     {
-        if (Random.Range(0,100)<=1)
+        if ( (int) GameClock.State >= (int) GameClock.DayState.WorkStart && (int) GameClock.State <= (int) GameClock.DayState.WorkEnd )
         {
-            m_hasMail = true;
+            if ( UnityEngine.Random.Range( 0, 200 ) <= 0 )
+            {
+                m_hasMail = true;
+                TaskManager.AddTask( TaskFactory.TubeTask );
+            }
 
-        }
-
-        if (m_hasMail)
-        {
-            m_mailLight.SetActive( true );            
-        }
-        else
-        {
-            m_mailLight.SetActive( false );
+            if ( m_hasMail )
+            {
+                m_mailLight.SetActive( true );
+            }
+            else
+            {
+                m_mailLight.SetActive( false );
+            }
         }
     }
     public override void Interact( Transform interactorTransform )
@@ -39,8 +43,19 @@ public class InteractableVacuumTube : Interactable {
         if (m_hasMail)
         {
             m_hasMail = false;
-            TaskManager.AddTask( TaskFactory.RandomWorkTask );
+            Task task = TaskFactory.RandomWorkTask;
+            if ( task.hasObjective( Goals.Objects.Document ) )
+            {
+                GetSpawner().Spawn();
+            }
+            TaskManager.AddTask( task );
 
         }
     }
+
+    public Spawner GetSpawner()
+    {
+        return GetComponent<Spawner>();
+    }
+   
 }

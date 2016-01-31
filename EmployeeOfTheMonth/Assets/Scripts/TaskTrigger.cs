@@ -3,12 +3,22 @@ using System.Collections;
 
 public class TaskTrigger : MonoBehaviour {
 
+    public AudioClip audioClip;
+    public UnityEngine.Audio.AudioMixerGroup MixerGroup;
+    public float audioSpatialBlend = 1.0f;
+    private AudioSource m_src;
     public Goals.Triggers TriggerType;
     public event TaskTriggeredAction TaskTriggerEvent;
     public delegate void TaskTriggeredAction( TaskTrigger trigger, Interactable triggerObj );
 
     protected virtual void Start()
     {
+        m_src = new AudioSource();
+        m_src.clip = audioClip;
+        m_src.spatialBlend = audioSpatialBlend;
+        m_src.playOnAwake = false;
+        m_src.outputAudioMixerGroup = MixerGroup;
+        m_src.loop = false;
         TaskManager.RegisterTrigger( this );
     }
 
@@ -20,6 +30,6 @@ public class TaskTrigger : MonoBehaviour {
             Debug.Log( "Task Trigger Event launcher: " + obj.name + " triggered on " + gameObject.name );
             TaskTriggerEvent( this, obj );
         }
-
+        m_src.Play();
     }
 }

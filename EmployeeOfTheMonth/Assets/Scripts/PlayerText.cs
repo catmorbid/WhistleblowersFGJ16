@@ -42,7 +42,8 @@ public class PlayerText : MonoBehaviour {
         else
         {
             m_singleton.Text.enabled = true;
-            m_singleton.StartCoroutine( "TextAppearsTyped", text.ToCharArray() );
+            string tx = text.Replace("<br>","\n");
+            m_singleton.StartCoroutine( "TextAppearsTyped", tx.ToCharArray() );
             //m_singleton.Text.text = text;
             
         }

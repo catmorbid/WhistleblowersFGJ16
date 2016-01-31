@@ -1,8 +1,21 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System;
 
 public class Interactable : MonoBehaviour {
 
+    public AudioClip InteractionAudio;
+    public UnityEngine.Audio.AudioMixerGroup MixerGroup;
+    public float audioSpatialBlend = 1.0f;
+    public bool LoopAudio = false;
+    private UnityEngine.AudioSource m_src;
+    public enum DefaultAction
+    {
+        None,
+        ResetState,
+        DestroyObject
+    }
+    public DefaultAction BasicActionType = DefaultAction.None;
     public event ObjectInteractedAction ObjectInteractionEvent;
     public delegate void ObjectInteractedAction( Interactable obj );
     public Goals.Objects InteractableObjectType;
@@ -43,6 +56,10 @@ public class Interactable : MonoBehaviour {
 
     protected virtual void Start()
     {
+        m_src = new AudioSource();
+        m_src.outputAudioMixerGroup = MixerGroup;
+        m_src.spatialBlend = audioSpatialBlend;
+        m_src.clip = InteractionAudio;
         TaskManager.RegisterInteraction( this );
     }
     public virtual void Interact(Transform interactorTransform)
@@ -57,7 +74,39 @@ public class Interactable : MonoBehaviour {
         {
             PlayerText.ShowSpeechBubble( interactionMessage, interactionMessage.Length / 60f );
         }
+        TakeAction();
     }
+
+    public  virtual void TakeAction()
+    {
+        if (InteractionAudio != null)
+        {
+            if ( !LoopAudio )
+            {
+                m_src.PlayOneShot( InteractionAudio );
+            }
+            else
+            {
+                if ( m_src.isPlaying )
+                {
+                    m_src.Stop();
+                }
+                else
+                {
+                    m_src.loop = true;
+                    m_src.Play();
+                }
+            }
+            
+        }
+        switch (BasicActionType)
+        {
+            case DefaultAction.DestroyObject:
+                Destroy( this.gameObject, 1f );
+                break;
+        }
+    }
+
     public virtual void InteractLongPress(Transform interactorTransform)
     {
     }

@@ -15,7 +15,7 @@ public class TaskTriggerDestroyer : TaskTrigger {
             {
                 if ( obj.InteractableObjectType == o )
                 {
-                    GameObject.Destroy( obj );
+                    GameObject.Destroy( obj.gameObject );
                     return;
                 }
             }

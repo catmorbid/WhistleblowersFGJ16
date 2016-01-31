@@ -83,7 +83,8 @@ public static class Goals
         Letter,
         Cabinet,
         VacuumTube,
-        Poster
+        Poster,
+        Document
     }
     public enum Triggers
     {
@@ -128,6 +129,7 @@ public class TimeConstraint
     {
         m_startTime = GameClock.GetTime();
         m_endTime = m_startTime + duration.seconds;
+        Debug.Log( "Start Time: " + m_startTime + " EndTime: " + m_endTime );
     }
 
     public bool HasTimeLeft
@@ -136,6 +138,12 @@ public class TimeConstraint
         {
             return ( m_endTime - GameClock.GetTime() > 0f );
         }
+    }
+    public void ResetTime()
+    {
+        float duration = m_endTime - m_startTime;
+        m_startTime = GameClock.GetTime();
+        m_endTime = m_startTime + duration;
     }
 
 }
@@ -412,5 +420,15 @@ public class TaskManager : MonoBehaviour
 
             }
         }
+    }
+
+    public static bool HasTaskWithGoal( Goals.Objects objective )
+    {
+        foreach (Task t in m_singleton.m_taskList)
+        {
+            if ( t.hasObjective( objective ) )
+                return true;
+        }
+        return false;
     }
 }

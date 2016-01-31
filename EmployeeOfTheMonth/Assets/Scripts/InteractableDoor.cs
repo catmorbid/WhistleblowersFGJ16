@@ -8,6 +8,8 @@ public class InteractableDoor : Interactable
     public Vector3 ClosePosition;
     private bool m_open = false;
     private bool m_busy = false;
+    public bool locked = false;
+    public string lockedMessage;
 
     protected override void Awake()
     {
@@ -23,9 +25,9 @@ public class InteractableDoor : Interactable
     {
         base.Interact(interactorTransform);
         Debug.Log( "Interacting with door" );
-        if ((int)GameClock.State < (int) GameClock.DayState.WorkStart)
+        if ((int)GameClock.State < (int) GameClock.DayState.WorkStart || locked)
         {
-            PlayerText.ShowSpeechBubble("No, I can't go to work yet. I must finish my chores. And be on time. Yes, on time!", 5f);
+            PlayerText.ShowSpeechBubble(lockedMessage, 5f);
         }
         else
         if ( !m_busy )
