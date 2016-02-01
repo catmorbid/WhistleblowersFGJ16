@@ -414,6 +414,7 @@ public class TaskManager : MonoBehaviour
             {
                 if ( t.Resolve() )
                 {
+                    trigger.AudioSrc.Play();
                     m_taskList.Remove( t );
                     i--;
                 }

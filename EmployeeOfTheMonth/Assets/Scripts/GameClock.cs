@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System;
+using UnityStandardAssets.CrossPlatformInput;
 
 public class GameClock : MonoBehaviour
 {
@@ -21,9 +22,17 @@ public class GameClock : MonoBehaviour
     private GameObject m_minutesObject;
     private GameObject m_hoursObject;
     private float m_hourOffset = -90;
+    private bool m_override = true;
+
+    internal static void MaxTimeOverride()
+    {
+        m_singleton.m_override = true;
+        BaseTimeMultiplier = MaximumTimeMultiplier;
+    }
+
     public static float BaseTimeMultiplier = 48f;
     public static float MinimumTimeMultiplier = 60f;
-    public static float MaximumTimeMultiplier = 144f;
+    public static float MaximumTimeMultiplier = 240f;
     private float m_time = 0f;
     private float m_updateFrequency = 10f;
 
@@ -32,6 +41,7 @@ public class GameClock : MonoBehaviour
     internal static void EndDay()
     {
         Debug.Log( "Day is will end" );
+        Application.LoadLevel( "victory" );
         //Fade Out effect, advance time to morning, begin day anew.
     }
 
@@ -100,6 +110,13 @@ public class GameClock : MonoBehaviour
         Hours = 6;
     }
 
+    void Update()
+    {
+        if (PlayerControls.PrimaryActionUp)
+        {
+            m_override = false;
+        }
+    }
     // Update is called once per frame
     void FixedUpdate()
     {
@@ -125,8 +142,11 @@ public class GameClock : MonoBehaviour
     }
     private void SetTimeMultiplier()
     {
-        float stress = PlayerScore.GetStressPercentage();
-        BaseTimeMultiplier = ( MaximumTimeMultiplier - MinimumTimeMultiplier ) * stress + MinimumTimeMultiplier;
+        if ( !m_override )
+        {
+            float stress = PlayerScore.GetStressPercentage();
+            BaseTimeMultiplier = ( MaximumTimeMultiplier - MinimumTimeMultiplier ) * stress + MinimumTimeMultiplier;
+        }
     }
 
     private void CheckTimeEvents()

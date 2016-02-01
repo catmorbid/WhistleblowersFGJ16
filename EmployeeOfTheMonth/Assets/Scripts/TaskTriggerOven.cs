@@ -9,6 +9,7 @@ public class TaskTriggerOven : TaskTrigger {
         Interactable obj = other.GetComponent<Interactable>();
         if (obj != null && obj.InteractableObjectType == Goals.Objects.Food)
         {
+            AudioSrc.Play();
             obj.InteractableObjectType = Goals.Objects.CookedFood;
             obj.Description = "Cooked food has much better flavour. I like cooked food better";
             

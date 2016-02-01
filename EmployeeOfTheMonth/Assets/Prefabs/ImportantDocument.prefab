@@ -27,7 +27,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 107892}
   m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071067}
-  m_LocalPosition: {x: -2.069, y: -0.625, z: -8.376}
+  m_LocalPosition: {x: 2.3607295, y: -0.863, z: -1.1051601}
   m_LocalScale: {x: 0.2, y: 0.25, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -42,7 +42,7 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000e000000000000000, type: 0}
+  - {fileID: 2100000, guid: d99b153360dd842409c39c01efb3ec2e, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 1
@@ -103,6 +103,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 35a6be91dd5a7a848829cbf694b92c82, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  InteractionAudio: {fileID: 0}
+  MixerGroup: {fileID: 0}
+  audioSpatialBlend: 1
+  LoopAudio: 0
+  BasicActionType: 0
   InteractableObjectType: 22
   m_description: It's an important document. This shouldn't get into the wrong hands.
   interactionMessage: It's top secret information.

@@ -8,6 +8,7 @@ public class Spawner : MonoBehaviour {
     public Transform SpawnPoint;
     public void Spawn()
     {
+        Debug.Log( "Spawning" );
         if ( Prefab != null && SpawnPoint != null )
         {
             GameObject obj = GameObject.Instantiate(Prefab);

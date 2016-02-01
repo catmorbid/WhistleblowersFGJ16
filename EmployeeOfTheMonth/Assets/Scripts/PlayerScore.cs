@@ -17,14 +17,20 @@ class PlayerScore
         }
         set
         {
+            if (m_stress + value > m_maxStress)
+            {
+                GameOver();
+            }
             m_stress = Mathf.Max(Mathf.Min(value,m_maxStress),0f);
+            
         }
     }
 
     public static void ModifyStress(float value)
     {
-        m_singleton.m_stress += value;
+        m_singleton.Stress += value;
         Debug.Log( "Stress Level is now " + m_singleton.Stress );
+        
     }
     public static float GetStress()
     {
@@ -35,5 +41,8 @@ class PlayerScore
     {
         return m_singleton.Stress / m_singleton.m_maxStress;
     }
-
+    public void GameOver()
+    {
+        UnityEngine.SceneManagement.SceneManager.LoadScene( "gameover", UnityEngine.SceneManagement.LoadSceneMode.Single );
+    }
 }

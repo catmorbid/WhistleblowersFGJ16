@@ -1,0 +1,1 @@
+To compile the game you need Unity 5.3.2 + Unity Standard Assets as a new project

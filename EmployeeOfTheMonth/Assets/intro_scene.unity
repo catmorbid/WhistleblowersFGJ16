@@ -149,6 +149,7 @@ MonoBehaviour:
   InteractionAudio: {fileID: 0}
   MixerGroup: {fileID: 0}
   audioSpatialBlend: 1
+  volume: 0.8
   LoopAudio: 0
   BasicActionType: 0
   InteractableObjectType: 10
@@ -550,6 +551,7 @@ MonoBehaviour:
   InteractionAudio: {fileID: 0}
   MixerGroup: {fileID: 0}
   audioSpatialBlend: 1
+  volume: 0.8
   LoopAudio: 0
   BasicActionType: 0
   InteractableObjectType: 0
@@ -1372,6 +1374,7 @@ MonoBehaviour:
   InteractionAudio: {fileID: 0}
   MixerGroup: {fileID: 24300001, guid: c3f6080ea8ed0cf4693eafd490bda12a, type: 2}
   audioSpatialBlend: 1
+  volume: 0.8
   LoopAudio: 0
   BasicActionType: 0
   InteractableObjectType: 5
@@ -1579,6 +1582,7 @@ MonoBehaviour:
   InteractionAudio: {fileID: 0}
   MixerGroup: {fileID: 0}
   audioSpatialBlend: 1
+  volume: 0.8
   LoopAudio: 0
   BasicActionType: 0
   InteractableObjectType: 0
@@ -1680,6 +1684,7 @@ MonoBehaviour:
   InteractionAudio: {fileID: 0}
   MixerGroup: {fileID: 0}
   audioSpatialBlend: 1
+  volume: 0.8
   LoopAudio: 0
   BasicActionType: 2
   InteractableObjectType: 11
@@ -1750,7 +1755,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 5
 --- !u!1 &790802303 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 100000, guid: e04003e795b41864381ade5c3f36cc74, type: 3}
@@ -1784,6 +1789,7 @@ MonoBehaviour:
   InteractionAudio: {fileID: 0}
   MixerGroup: {fileID: 0}
   audioSpatialBlend: 1
+  volume: 0.8
   LoopAudio: 0
   BasicActionType: 0
   InteractableObjectType: 0
@@ -1823,6 +1829,7 @@ MonoBehaviour:
   InteractionAudio: {fileID: 0}
   MixerGroup: {fileID: 0}
   audioSpatialBlend: 1
+  volume: 0.8
   LoopAudio: 0
   BasicActionType: 0
   InteractableObjectType: 4
@@ -1958,6 +1965,7 @@ MonoBehaviour:
   InteractionAudio: {fileID: 0}
   MixerGroup: {fileID: 0}
   audioSpatialBlend: 1
+  volume: 0.8
   LoopAudio: 0
   BasicActionType: 0
   InteractableObjectType: 0
@@ -2076,6 +2084,10 @@ Prefab:
       propertyPath: m_Layer
       value: 8
       objectReference: {fileID: 0}
+    - target: {fileID: 2300000, guid: c4a3335efaf4e0b488dac6c6d7ed4133, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 3c9839cbb4c807849bc213e0e9aa63e3, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c4a3335efaf4e0b488dac6c6d7ed4133, type: 3}
   m_IsPrefabParent: 0
@@ -2277,6 +2289,7 @@ MonoBehaviour:
   InteractionAudio: {fileID: 0}
   MixerGroup: {fileID: 0}
   audioSpatialBlend: 1
+  volume: 0.8
   LoopAudio: 0
   BasicActionType: 0
   InteractableObjectType: 18
@@ -2376,6 +2389,7 @@ MonoBehaviour:
   InteractionAudio: {fileID: 0}
   MixerGroup: {fileID: 0}
   audioSpatialBlend: 1
+  volume: 0.8
   LoopAudio: 0
   BasicActionType: 0
   InteractableObjectType: 17
@@ -2435,6 +2449,7 @@ MonoBehaviour:
   InteractionAudio: {fileID: 0}
   MixerGroup: {fileID: 0}
   audioSpatialBlend: 1
+  volume: 0.8
   LoopAudio: 0
   BasicActionType: 0
   InteractableObjectType: 0
@@ -4250,6 +4265,7 @@ MonoBehaviour:
   InteractionAudio: {fileID: 0}
   MixerGroup: {fileID: 0}
   audioSpatialBlend: 1
+  volume: 0.8
   LoopAudio: 0
   BasicActionType: 0
   InteractableObjectType: 8
@@ -4257,6 +4273,8 @@ MonoBehaviour:
   interactionMessage: 
   OpenPosition: {x: 7.9, y: 3.8, z: 19.151}
   ClosePosition: {x: 7.9, y: 1.25, z: 19.151}
+  locked: 0
+  lockedMessage: 
 --- !u!65 &1400194890
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -4387,6 +4405,7 @@ MonoBehaviour:
   InteractionAudio: {fileID: 0}
   MixerGroup: {fileID: 0}
   audioSpatialBlend: 1
+  volume: 0.8
   LoopAudio: 0
   BasicActionType: 0
   InteractableObjectType: 19
@@ -4503,6 +4522,7 @@ MonoBehaviour:
   InteractionAudio: {fileID: 0}
   MixerGroup: {fileID: 0}
   audioSpatialBlend: 1
+  volume: 0.8
   LoopAudio: 0
   BasicActionType: 0
   InteractableObjectType: 3
@@ -4844,6 +4864,7 @@ MonoBehaviour:
   InteractionAudio: {fileID: 0}
   MixerGroup: {fileID: 24300001, guid: c3f6080ea8ed0cf4693eafd490bda12a, type: 2}
   audioSpatialBlend: 1
+  volume: 0.8
   LoopAudio: 0
   BasicActionType: 0
   InteractableObjectType: 15
@@ -4880,6 +4901,7 @@ MonoBehaviour:
   InteractionAudio: {fileID: 0}
   MixerGroup: {fileID: 0}
   audioSpatialBlend: 1
+  volume: 0.8
   LoopAudio: 0
   BasicActionType: 0
   InteractableObjectType: 0
@@ -5026,6 +5048,7 @@ MonoBehaviour:
   InteractionAudio: {fileID: 0}
   MixerGroup: {fileID: 24334132, guid: c3f6080ea8ed0cf4693eafd490bda12a, type: 2}
   audioSpatialBlend: 1
+  volume: 0.8
   LoopAudio: 1
   BasicActionType: 0
   InteractableObjectType: 16
@@ -5722,6 +5745,7 @@ MonoBehaviour:
   InteractionAudio: {fileID: 0}
   MixerGroup: {fileID: 0}
   audioSpatialBlend: 1
+  volume: 0.8
   LoopAudio: 0
   BasicActionType: 0
   InteractableObjectType: 1
@@ -5778,12 +5802,15 @@ MonoBehaviour:
   InteractionAudio: {fileID: 0}
   MixerGroup: {fileID: 0}
   audioSpatialBlend: 1
+  volume: 0.8
   LoopAudio: 0
   BasicActionType: 0
   InteractableObjectType: 20
   m_description: I get mail through this vacuum tube. Mostly work-related, different
     tasks for me to do.
   interactionMessage: 
+  NotificationClip: {fileID: 0}
+  NotificationVolume: 0.6
 --- !u!65 &2050855658
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -5992,6 +6019,7 @@ MonoBehaviour:
   InteractionAudio: {fileID: 0}
   MixerGroup: {fileID: 24300001, guid: c3f6080ea8ed0cf4693eafd490bda12a, type: 2}
   audioSpatialBlend: 1
+  volume: 0.8
   LoopAudio: 0
   BasicActionType: 0
   InteractableObjectType: 6

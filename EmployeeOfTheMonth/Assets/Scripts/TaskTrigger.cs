@@ -11,9 +11,15 @@ public class TaskTrigger : MonoBehaviour {
     public event TaskTriggeredAction TaskTriggerEvent;
     public delegate void TaskTriggeredAction( TaskTrigger trigger, Interactable triggerObj );
 
+    public AudioSource AudioSrc {
+        get
+        {
+            return m_src;
+        }
+    }
     protected virtual void Start()
     {
-        m_src = new AudioSource();
+        m_src = gameObject.AddComponent<AudioSource>();
         m_src.clip = audioClip;
         m_src.spatialBlend = audioSpatialBlend;
         m_src.playOnAwake = false;
@@ -30,6 +36,9 @@ public class TaskTrigger : MonoBehaviour {
             Debug.Log( "Task Trigger Event launcher: " + obj.name + " triggered on " + gameObject.name );
             TaskTriggerEvent( this, obj );
         }
-        m_src.Play();
+        //if ( m_src != null )
+        //{
+        //    m_src.Play();
+        //}
     }
 }

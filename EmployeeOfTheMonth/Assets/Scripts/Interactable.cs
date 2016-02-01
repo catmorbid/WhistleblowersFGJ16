@@ -7,8 +7,9 @@ public class Interactable : MonoBehaviour {
     public AudioClip InteractionAudio;
     public UnityEngine.Audio.AudioMixerGroup MixerGroup;
     public float audioSpatialBlend = 1.0f;
+    public float volume = 0.8f;
     public bool LoopAudio = false;
-    private UnityEngine.AudioSource m_src;
+    protected UnityEngine.AudioSource m_src;
     public enum DefaultAction
     {
         None,
@@ -56,10 +57,11 @@ public class Interactable : MonoBehaviour {
 
     protected virtual void Start()
     {
-        m_src = new AudioSource();
+        m_src = gameObject.AddComponent<AudioSource>();
         m_src.outputAudioMixerGroup = MixerGroup;
         m_src.spatialBlend = audioSpatialBlend;
         m_src.clip = InteractionAudio;
+        m_src.volume = volume;
         TaskManager.RegisterInteraction( this );
     }
     public virtual void Interact(Transform interactorTransform)

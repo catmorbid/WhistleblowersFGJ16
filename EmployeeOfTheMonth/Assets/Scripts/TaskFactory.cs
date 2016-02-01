@@ -122,11 +122,11 @@ public class TaskFactory
         m_workTasks.Add( new Task( "Type down the provided facts in the Historical Database", Task.TaskType.Important, new Objective( Goals.Objects.Computer ), new Reward( -20, 100 ), new TimeConstraint( new TaskTime( 2, 0 ) ) ) );
         m_workTasks.Add( new Task( "Write an essay on the gloriousness of our Father the Supreme Leader", Task.TaskType.Important, new Objective( Goals.Objects.Computer ), new Reward( -20, 100 ), new TimeConstraint( new TaskTime( 2, 0 ) ) ) );
         m_workTasks.Add( new Task( "Write a speech where Father will explain why wellfare is bad thing to have", Task.TaskType.Important, new Objective( Goals.Objects.Computer ), new Reward( -20, 100 ), new TimeConstraint( new TaskTime( 2, 0 ) ) ) );
-        m_workTasks.Add( new Task( "Take the important documents to the archive", Task.TaskType.Important, new Objective( Goals.Objects.Letter, Goals.Triggers.Cabinet), new Reward( -20, 100 ), new TimeConstraint( new TaskTime( 2, 0 ) ) ) );
+        m_workTasks.Add( new Task( "Take the important documents to the archive", Task.TaskType.Important, new Objective( Goals.Objects.Document, Goals.Triggers.Cabinet), new Reward( -20, 100 ), new TimeConstraint( new TaskTime( 2, 0 ) ) ) );
         m_workTasks.Add( new Task( "Listen to the radio. There's an important message coming up", Task.TaskType.Important, new Objective( Goals.Objects.Radio), new Reward( -20, 100 ), new TimeConstraint( new TaskTime( 2, 0 ) ) ) );
         m_workTasks.Add( new Task( "Answer the phone, then write down the conversation", Task.TaskType.Important, new Objective( Goals.Objects.Phone, new Objective(Goals.Objects.Notepad) ), new Reward( -20, 100 ), new TimeConstraint( new TaskTime( 2, 0 ) ) ) );
-        m_workTasks.Add( new Task( "Fetch some documents from the archive and dispose of them", Task.TaskType.Important, new Objective( Goals.Objects.Cabinet, new Objective(Goals.Objects.Letter, Goals.Triggers.Trashbin) ), new Reward( -20, 100 ), new TimeConstraint( new TaskTime( 2, 0 ) ) ) );
-        m_workTasks.Add( new Task( "Listen up, take these documents and put them in YOUR mail box,  for pickup.", Task.TaskType.Important, new Objective( Goals.Objects.Letter, Goals.Triggers.Mailbin ), new Reward( -20, 100 ), new TimeConstraint( new TaskTime( 2, 0 ) ) ) );
+        m_workTasks.Add( new Task( "Fetch some documents from the archive and dispose of them", Task.TaskType.Important, new Objective( Goals.Objects.Cabinet, new Objective(Goals.Objects.Document, Goals.Triggers.Trashbin) ), new Reward( -20, 100 ), new TimeConstraint( new TaskTime( 2, 0 ) ) ) );
+        m_workTasks.Add( new Task( "Listen up, take these documents and put them in YOUR mail box,  for pickup.", Task.TaskType.Important, new Objective( Goals.Objects.Document, Goals.Triggers.Mailbin ), new Reward( -20, 100 ), new TimeConstraint( new TaskTime( 2, 0 ) ) ) );
         //Debug.Log( "TODO: do these" );
     }
 

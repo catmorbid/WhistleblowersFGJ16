@@ -128,6 +128,10 @@ Prefab:
       propertyPath: m_Name
       value: Whiskey
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: db5d1ebd0fba4fc48bb102154a7f0f06, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: db5d1ebd0fba4fc48bb102154a7f0f06, type: 3}
   m_IsPrefabParent: 0
@@ -146,9 +150,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 35a6be91dd5a7a848829cbf694b92c82, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  InteractionAudio: {fileID: 0}
-  MixerGroup: {fileID: 0}
+  InteractionAudio: {fileID: 8300000, guid: a75eef7b602dd184a8d0b21b1812176a, type: 3}
+  MixerGroup: {fileID: 24300001, guid: c3f6080ea8ed0cf4693eafd490bda12a, type: 2}
   audioSpatialBlend: 1
+  volume: 0.8
   LoopAudio: 0
   BasicActionType: 0
   InteractableObjectType: 10
@@ -556,6 +561,7 @@ MonoBehaviour:
   InteractionAudio: {fileID: 0}
   MixerGroup: {fileID: 0}
   audioSpatialBlend: 1
+  volume: 0.8
   LoopAudio: 0
   BasicActionType: 0
   InteractableObjectType: 0
@@ -595,7 +601,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &184990922
 Transform:
@@ -649,7 +655,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!224 &188963661
 RectTransform:
@@ -742,7 +748,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &203393361
 Transform:
@@ -815,6 +821,7 @@ MonoBehaviour:
   InteractionAudio: {fileID: 0}
   MixerGroup: {fileID: 0}
   audioSpatialBlend: 1
+  volume: 0.8
   LoopAudio: 0
   BasicActionType: 0
   InteractableObjectType: 21
@@ -858,6 +865,14 @@ Prefab:
     - target: {fileID: 400000, guid: ae7c03f475d471947aa6f78dff2386e6, type: 3}
       propertyPath: m_RootOrder
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: ae7c03f475d471947aa6f78dff2386e6, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 2300000, guid: ae7c03f475d471947aa6f78dff2386e6, type: 3}
+      propertyPath: m_CastShadows
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ae7c03f475d471947aa6f78dff2386e6, type: 3}
@@ -904,6 +919,10 @@ Prefab:
     - target: {fileID: 100000, guid: ba01876f8817d474ebf33dbacce5e2b6, type: 3}
       propertyPath: m_Layer
       value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: ba01876f8817d474ebf33dbacce5e2b6, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ba01876f8817d474ebf33dbacce5e2b6, type: 3}
@@ -1148,6 +1167,10 @@ Prefab:
     - target: {fileID: 400000, guid: a90942bc36af0f7469495a703c02dc8a, type: 3}
       propertyPath: m_RootOrder
       value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: a90942bc36af0f7469495a703c02dc8a, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a90942bc36af0f7469495a703c02dc8a, type: 3}
@@ -1581,6 +1604,7 @@ MonoBehaviour:
   InteractionAudio: {fileID: 0}
   MixerGroup: {fileID: 24300001, guid: c3f6080ea8ed0cf4693eafd490bda12a, type: 2}
   audioSpatialBlend: 1
+  volume: 0.8
   LoopAudio: 0
   BasicActionType: 0
   InteractableObjectType: 9
@@ -1734,7 +1758,12 @@ Prefab:
       propertyPath: m_Layer
       value: 8
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 100000, guid: e75d9e759923d7e4286e39cd5aeea957, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 9500000, guid: e75d9e759923d7e4286e39cd5aeea957, type: 3}
   m_ParentPrefab: {fileID: 100100000, guid: e75d9e759923d7e4286e39cd5aeea957, type: 3}
   m_IsPrefabParent: 0
 --- !u!1 &412851095 stripped
@@ -1752,8 +1781,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 22c05775e1dfc9940aa7fa23fde5d5de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  audioClip: {fileID: 0}
-  MixerGroup: {fileID: 0}
+  audioClip: {fileID: 8300000, guid: 879743daaf1b0be4db507374bb47ce66, type: 3}
+  MixerGroup: {fileID: 24300001, guid: c3f6080ea8ed0cf4693eafd490bda12a, type: 2}
   audioSpatialBlend: 1
   TriggerType: 2
 --- !u!65 &412851097
@@ -1806,6 +1835,7 @@ MonoBehaviour:
   InteractionAudio: {fileID: 0}
   MixerGroup: {fileID: 0}
   audioSpatialBlend: 1
+  volume: 0.8
   LoopAudio: 0
   BasicActionType: 0
   InteractableObjectType: 14
@@ -1837,12 +1867,12 @@ Light:
   serializedVersion: 6
   m_Type: 0
   m_Color: {r: 0.8014706, g: 0.7701758, b: 0.5952098, a: 1}
-  m_Intensity: 7.35
+  m_Intensity: 6.9
   m_Range: 3.2
   m_SpotAngle: 134.7
   m_CookieSize: 10
   m_Shadows:
-    m_Type: 0
+    m_Type: 2
     m_Resolution: -1
     m_Strength: 1
     m_Bias: 0.05
@@ -1855,7 +1885,7 @@ Light:
   m_CullingMask:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_Lightmapping: 4
+  m_Lightmapping: 1
   m_BounceIntensity: 1
   m_ShadowRadius: 0
   m_ShadowAngle: 0
@@ -1927,6 +1957,10 @@ Prefab:
       propertyPath: m_Layer
       value: 8
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 0fbbaf11e8f144744b0191fa866c4fb3, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 0fbbaf11e8f144744b0191fa866c4fb3, type: 3}
   m_IsPrefabParent: 0
@@ -1976,6 +2010,10 @@ Prefab:
     - target: {fileID: 400000, guid: c36a5a96bab6aaf4a88aa4f79eb804b2, type: 3}
       propertyPath: m_LocalScale.x
       value: 1.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: c36a5a96bab6aaf4a88aa4f79eb804b2, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c36a5a96bab6aaf4a88aa4f79eb804b2, type: 3}
@@ -2151,6 +2189,10 @@ Prefab:
       propertyPath: m_Layer
       value: 8
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 5b734df137db4b14e8e7f8347a84be0a, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 5b734df137db4b14e8e7f8347a84be0a, type: 3}
   m_IsPrefabParent: 0
@@ -2169,9 +2211,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b16cda5d784cd784fb2e7b88f1945a82, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  InteractionAudio: {fileID: 0}
+  InteractionAudio: {fileID: 8300000, guid: 28c24c290890d3c40b87b8b56d959e98, type: 3}
   MixerGroup: {fileID: 24300001, guid: c3f6080ea8ed0cf4693eafd490bda12a, type: 2}
   audioSpatialBlend: 1
+  volume: 0.8
   LoopAudio: 0
   BasicActionType: 0
   InteractableObjectType: 5
@@ -2201,8 +2244,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 690fb77a57f6a3d41813b3daffc54915, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  audioClip: {fileID: 0}
-  MixerGroup: {fileID: 0}
+  audioClip: {fileID: 8300000, guid: 28c24c290890d3c40b87b8b56d959e98, type: 3}
+  MixerGroup: {fileID: 24300001, guid: c3f6080ea8ed0cf4693eafd490bda12a, type: 2}
   audioSpatialBlend: 1
   TriggerType: 4
   DestroyableObjects: 020000000a000000
@@ -2379,6 +2422,7 @@ MonoBehaviour:
   InteractionAudio: {fileID: 0}
   MixerGroup: {fileID: 0}
   audioSpatialBlend: 1
+  volume: 0.8
   LoopAudio: 0
   BasicActionType: 0
   InteractableObjectType: 0
@@ -2415,7 +2459,7 @@ MonoBehaviour:
   MixerGroup: {fileID: 24300001, guid: c3f6080ea8ed0cf4693eafd490bda12a, type: 2}
   audioSpatialBlend: 1
   TriggerType: 3
-  DestroyableObjects: 0b0000000c0000001200000007000000
+  DestroyableObjects: 0b0000000c000000120000000700000016000000
 --- !u!1001 &747677231
 Prefab:
   m_ObjectHideFlags: 0
@@ -2459,7 +2503,21 @@ Prefab:
       propertyPath: m_Name
       value: rationpack (1)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 11400146, guid: 53272674c3f4c814ea6d8dc54ededf36, type: 2}
+      propertyPath: InteractionAudio
+      value: 
+      objectReference: {fileID: 8300000, guid: 4a1bf5f08d90c9149816a48ec670b920, type: 3}
+    - target: {fileID: 11400146, guid: 53272674c3f4c814ea6d8dc54ededf36, type: 2}
+      propertyPath: MixerGroup
+      value: 
+      objectReference: {fileID: 24300001, guid: c3f6080ea8ed0cf4693eafd490bda12a,
+        type: 2}
+    - target: {fileID: 11400146, guid: 53272674c3f4c814ea6d8dc54ededf36, type: 2}
+      propertyPath: BasicActionType
+      value: 2
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 11400146, guid: 53272674c3f4c814ea6d8dc54ededf36, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: 53272674c3f4c814ea6d8dc54ededf36, type: 2}
   m_IsPrefabParent: 0
 --- !u!1 &747677232 stripped
@@ -2477,9 +2535,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a6d51ecd7a68d0a428646174d9b59aae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  InteractionAudio: {fileID: 0}
-  MixerGroup: {fileID: 0}
+  InteractionAudio: {fileID: 8300000, guid: 4a1bf5f08d90c9149816a48ec670b920, type: 3}
+  MixerGroup: {fileID: 24300001, guid: c3f6080ea8ed0cf4693eafd490bda12a, type: 2}
   audioSpatialBlend: 1
+  volume: 0.8
   LoopAudio: 0
   BasicActionType: 2
   InteractableObjectType: 11
@@ -2515,9 +2574,9 @@ Light:
   m_Enabled: 1
   serializedVersion: 6
   m_Type: 2
-  m_Color: {r: 0.7794118, g: 0.6300114, b: 0.46993947, a: 1}
-  m_Intensity: 1.9
-  m_Range: 50
+  m_Color: {r: 0.78719723, g: 0.90004176, b: 0.9558824, a: 1}
+  m_Intensity: 0.9
+  m_Range: 24.72
   m_SpotAngle: 30
   m_CookieSize: 10
   m_Shadows:
@@ -2534,8 +2593,8 @@ Light:
   m_CullingMask:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_Lightmapping: 4
-  m_BounceIntensity: 3.7
+  m_Lightmapping: 1
+  m_BounceIntensity: 0.68
   m_ShadowRadius: 0
   m_ShadowAngle: 0
   m_AreaSize: {x: 1, y: 1}
@@ -2584,6 +2643,7 @@ MonoBehaviour:
   InteractionAudio: {fileID: 0}
   MixerGroup: {fileID: 0}
   audioSpatialBlend: 1
+  volume: 0.8
   LoopAudio: 0
   BasicActionType: 0
   InteractableObjectType: 0
@@ -2606,7 +2666,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &808010605
 Transform:
@@ -2679,6 +2739,7 @@ MonoBehaviour:
   InteractionAudio: {fileID: 0}
   MixerGroup: {fileID: 0}
   audioSpatialBlend: 1
+  volume: 0.8
   LoopAudio: 0
   BasicActionType: 0
   InteractableObjectType: 21
@@ -2715,9 +2776,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 35a6be91dd5a7a848829cbf694b92c82, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  InteractionAudio: {fileID: 0}
-  MixerGroup: {fileID: 0}
+  InteractionAudio: {fileID: 8300000, guid: de0074ee611987d4babc5c954eb18822, type: 3}
+  MixerGroup: {fileID: 24300001, guid: c3f6080ea8ed0cf4693eafd490bda12a, type: 2}
   audioSpatialBlend: 1
+  volume: 0.8
   LoopAudio: 0
   BasicActionType: 0
   InteractableObjectType: 4
@@ -2853,6 +2915,7 @@ MonoBehaviour:
   InteractionAudio: {fileID: 0}
   MixerGroup: {fileID: 0}
   audioSpatialBlend: 1
+  volume: 0.8
   LoopAudio: 0
   BasicActionType: 0
   InteractableObjectType: 0
@@ -2908,6 +2971,10 @@ Prefab:
     - target: {fileID: 100000, guid: 7244c663212df064497e163f9a4a746f, type: 3}
       propertyPath: m_Layer
       value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 7244c663212df064497e163f9a4a746f, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7244c663212df064497e163f9a4a746f, type: 3}
@@ -2971,6 +3038,14 @@ Prefab:
       propertyPath: m_Layer
       value: 8
       objectReference: {fileID: 0}
+    - target: {fileID: 2300000, guid: c4a3335efaf4e0b488dac6c6d7ed4133, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 3c9839cbb4c807849bc213e0e9aa63e3, type: 2}
+    - target: {fileID: 100000, guid: c4a3335efaf4e0b488dac6c6d7ed4133, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c4a3335efaf4e0b488dac6c6d7ed4133, type: 3}
   m_IsPrefabParent: 0
@@ -2991,7 +3066,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &1010413901
 Transform:
@@ -3064,6 +3139,7 @@ MonoBehaviour:
   InteractionAudio: {fileID: 0}
   MixerGroup: {fileID: 0}
   audioSpatialBlend: 1
+  volume: 0.8
   LoopAudio: 0
   BasicActionType: 0
   InteractableObjectType: 21
@@ -3292,7 +3368,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &1102412318
 Transform:
@@ -3400,6 +3476,7 @@ MonoBehaviour:
   InteractionAudio: {fileID: 0}
   MixerGroup: {fileID: 0}
   audioSpatialBlend: 1
+  volume: 0.8
   LoopAudio: 0
   BasicActionType: 0
   InteractableObjectType: 18
@@ -3433,7 +3510,7 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000e000000000000000, type: 0}
+  - {fileID: 2100000, guid: 64ba3d9acaae63443853ea388fab45b4, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 1
@@ -3501,6 +3578,7 @@ MonoBehaviour:
   InteractionAudio: {fileID: 0}
   MixerGroup: {fileID: 0}
   audioSpatialBlend: 1
+  volume: 0.8
   LoopAudio: 0
   BasicActionType: 0
   InteractableObjectType: 17
@@ -3560,6 +3638,7 @@ MonoBehaviour:
   InteractionAudio: {fileID: 0}
   MixerGroup: {fileID: 0}
   audioSpatialBlend: 1
+  volume: 0.8
   LoopAudio: 0
   BasicActionType: 0
   InteractableObjectType: 0
@@ -3606,7 +3685,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &1370542015
 Transform:
@@ -5302,6 +5381,7 @@ MonoBehaviour:
   InteractionAudio: {fileID: 0}
   MixerGroup: {fileID: 0}
   audioSpatialBlend: 1
+  volume: 0.8
   LoopAudio: 0
   BasicActionType: 0
   InteractableObjectType: 8
@@ -5442,6 +5522,7 @@ MonoBehaviour:
   InteractionAudio: {fileID: 0}
   MixerGroup: {fileID: 0}
   audioSpatialBlend: 1
+  volume: 0.8
   LoopAudio: 0
   BasicActionType: 0
   InteractableObjectType: 19
@@ -5463,7 +5544,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!224 &1483375281
 RectTransform:
@@ -5564,7 +5645,8 @@ Prefab:
       propertyPath: m_Layer
       value: 8
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 6400000, guid: 96b8f5f3b9bbff349a29424cd009952e, type: 3}
   m_ParentPrefab: {fileID: 100100000, guid: 96b8f5f3b9bbff349a29424cd009952e, type: 3}
   m_IsPrefabParent: 0
 --- !u!1001 &1504093667
@@ -5605,6 +5687,10 @@ Prefab:
     - target: {fileID: 400000, guid: a90942bc36af0f7469495a703c02dc8a, type: 3}
       propertyPath: m_RootOrder
       value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: a90942bc36af0f7469495a703c02dc8a, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a90942bc36af0f7469495a703c02dc8a, type: 3}
@@ -5684,6 +5770,81 @@ GameObject:
 Transform:
   m_PrefabParentObject: {fileID: 400000, guid: c4a3335efaf4e0b488dac6c6d7ed4133, type: 3}
   m_PrefabInternal: {fileID: 1006927250}
+--- !u!82 &1589802838
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1589802836}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 24334132, guid: c3f6080ea8ed0cf4693eafd490bda12a,
+    type: 2}
+  m_audioClip: {fileID: 8300000, guid: 153551e92d339c54d96c5b3a6c69ca1e, type: 3}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 1
+  Mute: 0
+  Spatialize: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
 --- !u!114 &1589802841
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5695,9 +5856,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a4caa5f6f46834b479f746ee25adc300, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  InteractionAudio: {fileID: 0}
-  MixerGroup: {fileID: 0}
+  InteractionAudio: {fileID: 8300000, guid: 4f189bd5bb5369e469945c797272dca0, type: 3}
+  MixerGroup: {fileID: 24300001, guid: c3f6080ea8ed0cf4693eafd490bda12a, type: 2}
   audioSpatialBlend: 1
+  volume: 0.8
   LoopAudio: 0
   BasicActionType: 0
   InteractableObjectType: 3
@@ -5766,6 +5928,10 @@ Prefab:
     - target: {fileID: 100000, guid: 38545190b739dc541b3cc693fcf6e216, type: 3}
       propertyPath: m_Layer
       value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 38545190b739dc541b3cc693fcf6e216, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 38545190b739dc541b3cc693fcf6e216, type: 3}
@@ -5849,7 +6015,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 424d34699ef24bd418ef7cd6144e97c1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  audioClip: {fileID: 0}
+  audioClip: {fileID: 8300000, guid: d5a95fa9474bccb4ea6771c5d3427696, type: 3}
   MixerGroup: {fileID: 24300001, guid: c3f6080ea8ed0cf4693eafd490bda12a, type: 2}
   audioSpatialBlend: 1
   TriggerType: 6
@@ -6071,9 +6237,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b16cda5d784cd784fb2e7b88f1945a82, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  InteractionAudio: {fileID: 0}
+  InteractionAudio: {fileID: 8300000, guid: 6e33e02133a4fdb4a8fa093ddb76ab95, type: 3}
   MixerGroup: {fileID: 24300001, guid: c3f6080ea8ed0cf4693eafd490bda12a, type: 2}
   audioSpatialBlend: 1
+  volume: 0.8
   LoopAudio: 0
   BasicActionType: 0
   InteractableObjectType: 15
@@ -6110,6 +6277,7 @@ MonoBehaviour:
   InteractionAudio: {fileID: 0}
   MixerGroup: {fileID: 0}
   audioSpatialBlend: 1
+  volume: 0.8
   LoopAudio: 0
   BasicActionType: 0
   InteractableObjectType: 0
@@ -6185,6 +6353,10 @@ Prefab:
       propertyPath: m_LocalScale.z
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: b60f0322fefc8124d9fa8168890930e7, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b60f0322fefc8124d9fa8168890930e7, type: 3}
   m_IsPrefabParent: 0
@@ -6257,9 +6429,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 35a6be91dd5a7a848829cbf694b92c82, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  InteractionAudio: {fileID: 0}
-  MixerGroup: {fileID: 24334132, guid: c3f6080ea8ed0cf4693eafd490bda12a, type: 2}
-  audioSpatialBlend: 1
+  InteractionAudio: {fileID: 8300000, guid: cc4ff96ba1cbc3e42b6418fb86f18352, type: 3}
+  MixerGroup: {fileID: 24368938, guid: c3f6080ea8ed0cf4693eafd490bda12a, type: 2}
+  audioSpatialBlend: 0.7
+  volume: 0.8
   LoopAudio: 1
   BasicActionType: 0
   InteractableObjectType: 16
@@ -6399,6 +6572,30 @@ Prefab:
     - target: {fileID: 400008, guid: f5fb5e8ebdfcd4549984ac3c6a6961bf, type: 3}
       propertyPath: m_LocalPosition.z
       value: -0.271
+      objectReference: {fileID: 0}
+    - target: {fileID: 100004, guid: f5fb5e8ebdfcd4549984ac3c6a6961bf, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 100002, guid: f5fb5e8ebdfcd4549984ac3c6a6961bf, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 100008, guid: f5fb5e8ebdfcd4549984ac3c6a6961bf, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 100006, guid: f5fb5e8ebdfcd4549984ac3c6a6961bf, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: f5fb5e8ebdfcd4549984ac3c6a6961bf, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 100010, guid: f5fb5e8ebdfcd4549984ac3c6a6961bf, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: f5fb5e8ebdfcd4549984ac3c6a6961bf, type: 3}
@@ -6963,7 +7160,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 24334132, guid: c3f6080ea8ed0cf4693eafd490bda12a,
     type: 2}
-  m_audioClip: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: b164a7514f5ab7e4cb906bb8bbd6b1a2, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
@@ -6999,7 +7196,7 @@ AudioSource:
     serializedVersion: 2
     m_Curve:
     - time: 0
-      value: 0
+      value: 0.666
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -7204,7 +7401,12 @@ Prefab:
       propertyPath: m_Layer
       value: 8
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 172688, guid: 189a8f703a1ae4645b85eb5b265c76ae, type: 2}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 9597794, guid: 189a8f703a1ae4645b85eb5b265c76ae, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: 189a8f703a1ae4645b85eb5b265c76ae, type: 2}
   m_IsPrefabParent: 0
 --- !u!1001 &2037558913
@@ -7220,7 +7422,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: ce1015017d360b643844f64cd78c3746, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.899
+      value: -0.738
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: ce1015017d360b643844f64cd78c3746, type: 3}
       propertyPath: m_LocalPosition.z
@@ -7228,29 +7430,30 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: ce1015017d360b643844f64cd78c3746, type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0.17085434
+      value: -0.17085436
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: ce1015017d360b643844f64cd78c3746, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.68615514
+      value: 0.6861552
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: ce1015017d360b643844f64cd78c3746, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.686155
+      value: 0.6861551
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: ce1015017d360b643844f64cd78c3746, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.17085439
+      value: 0.1708544
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: ce1015017d360b643844f64cd78c3746, type: 3}
       propertyPath: m_RootOrder
-      value: 10
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: ce1015017d360b643844f64cd78c3746, type: 3}
       propertyPath: m_Layer
       value: 8
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 9500000, guid: ce1015017d360b643844f64cd78c3746, type: 3}
   m_ParentPrefab: {fileID: 100100000, guid: ce1015017d360b643844f64cd78c3746, type: 3}
   m_IsPrefabParent: 0
 --- !u!1 &2037558914 stripped
@@ -7268,9 +7471,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a6d51ecd7a68d0a428646174d9b59aae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  InteractionAudio: {fileID: 0}
-  MixerGroup: {fileID: 0}
+  InteractionAudio: {fileID: 8300000, guid: a75eef7b602dd184a8d0b21b1812176a, type: 3}
+  MixerGroup: {fileID: 24300001, guid: c3f6080ea8ed0cf4693eafd490bda12a, type: 2}
   audioSpatialBlend: 1
+  volume: 0.8
   LoopAudio: 0
   BasicActionType: 0
   InteractableObjectType: 1
@@ -7324,15 +7528,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b1d72a59e3466d4b9a417c8ce9b87ce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  InteractionAudio: {fileID: 0}
-  MixerGroup: {fileID: 0}
+  InteractionAudio: {fileID: 8300000, guid: 200ce649a52367540b7399f7c701a8e1, type: 3}
+  MixerGroup: {fileID: 24300001, guid: c3f6080ea8ed0cf4693eafd490bda12a, type: 2}
   audioSpatialBlend: 1
+  volume: 0.8
   LoopAudio: 0
   BasicActionType: 0
   InteractableObjectType: 20
   m_description: I get mail through this vacuum tube. Mostly work-related, different
     tasks for me to do.
   interactionMessage: 
+  NotificationClip: {fileID: 8300000, guid: 200ce649a52367540b7399f7c701a8e1, type: 3}
+  NotificationVolume: 0.6
 --- !u!65 &2050855658
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -7506,6 +7713,10 @@ Prefab:
       propertyPath: m_Layer
       value: 8
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 14853b335c84176489eec108094b8fd2, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 14853b335c84176489eec108094b8fd2, type: 3}
   m_IsPrefabParent: 0
@@ -7536,9 +7747,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b16cda5d784cd784fb2e7b88f1945a82, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  InteractionAudio: {fileID: 0}
+  InteractionAudio: {fileID: 8300000, guid: 32fc9bcad42f26741addf07141ece6fa, type: 3}
   MixerGroup: {fileID: 24300001, guid: c3f6080ea8ed0cf4693eafd490bda12a, type: 2}
   audioSpatialBlend: 1
+  volume: 0.8
   LoopAudio: 0
   BasicActionType: 0
   InteractableObjectType: 6
@@ -7549,3 +7761,59 @@ MonoBehaviour:
 Transform:
   m_PrefabParentObject: {fileID: 400000, guid: 14853b335c84176489eec108094b8fd2, type: 3}
   m_PrefabInternal: {fileID: 2111635483}
+--- !u!1 &2144552727
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 2144552730}
+  - 65: {fileID: 2144552729}
+  - 114: {fileID: 2144552728}
+  m_Layer: 0
+  m_Name: MailBox
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &2144552728
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2144552727}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e3788dfb5b12633499a38a9c8932b6ab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioClip: {fileID: 0}
+  MixerGroup: {fileID: 0}
+  audioSpatialBlend: 1
+  TriggerType: 1
+--- !u!65 &2144552729
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2144552727}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.6, y: -0.26, z: 0.32}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!4 &2144552730
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2144552727}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1.32, y: -0.475, z: 3.866}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 21

@@ -26,7 +26,7 @@ public class DraggableAltStateInteractable : DraggableRigidbody {
         {
             interactionMessage = altString;
             Description = altDescription;
-            AlternateAction();
+            Invoke( "AlternateAction", 1f );//AlternateAction();
         }
         else
         {
@@ -52,9 +52,11 @@ public class DraggableAltStateInteractable : DraggableRigidbody {
 
     public void SetAlternateState(bool altState)
     {
+        Debug.Log( "set to alternate state " + altState );
         if (altState)
         {
             InteractableObjectType = altObjectState;
+            Debug.Log( "type = " + InteractableObjectType );
         }
     }
 

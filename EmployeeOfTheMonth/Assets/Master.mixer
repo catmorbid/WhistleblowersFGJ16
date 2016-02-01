@@ -18,6 +18,7 @@ AudioMixerController:
   - guids:
     - 0c11bdb3575011349a7b203b7d1d7c1e
     - 8a2283506d5ddf341857ea3459f6fd05
+    - 5a35958aa6407e945b219f6c50e842da
     name: View
   m_CurrentViewIndex: 0
   m_TargetSnapshot: {fileID: 24500003}
@@ -31,6 +32,7 @@ AudioMixerGroupController:
   m_GroupID: 0c11bdb3575011349a7b203b7d1d7c1e
   m_Children:
   - {fileID: 24334132}
+  - {fileID: 24368938}
   m_Volume: 97ab21bc0bb4fc14c996ae7ed39b7ca3
   m_Pitch: 04d800dc35dff17409ae40fdb1c62499
   m_Effects:
@@ -56,6 +58,23 @@ AudioMixerGroupController:
   m_Mute: 0
   m_Solo: 0
   m_BypassEffects: 0
+--- !u!243 &24368938
+AudioMixerGroupController:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: Radio
+  m_AudioMixer: {fileID: 24100000}
+  m_GroupID: 5a35958aa6407e945b219f6c50e842da
+  m_Children: []
+  m_Volume: 62a76c14acd7d7441b007e98fb061159
+  m_Pitch: 085134cbb9f55764c9baf63185fc6341
+  m_Effects:
+  - {fileID: 24411496}
+  m_UserColorIndex: 0
+  m_Mute: 0
+  m_Solo: 0
+  m_BypassEffects: 0
 --- !u!244 &24400002
 AudioMixerEffectController:
   m_ObjectHideFlags: 3
@@ -65,6 +84,19 @@ AudioMixerEffectController:
   m_EffectID: 6ccdfe0447a21bc49898abd46d3232b9
   m_EffectName: Attenuation
   m_MixLevel: 4cada04d02d378741acaba847272711e
+  m_Parameters: []
+  m_SendTarget: {fileID: 0}
+  m_EnableWetMix: 0
+  m_Bypass: 0
+--- !u!244 &24411496
+AudioMixerEffectController:
+  m_ObjectHideFlags: 3
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: 
+  m_EffectID: 2c2587e5c3430eb42a1f53d346b2454f
+  m_EffectName: Attenuation
+  m_MixLevel: 9a17c38123ca1e448a04d7cf99077f2e
   m_Parameters: []
   m_SendTarget: {fileID: 0}
   m_EnableWetMix: 0
@@ -90,5 +122,8 @@ AudioMixerSnapshotController:
   m_Name: Snapshot
   m_AudioMixer: {fileID: 24100000}
   m_SnapshotID: 48600d563f8031846a82f2d6cab925de
-  m_FloatValues: {}
+  m_FloatValues:
+    62a76c14acd7d7441b007e98fb061159: -4.653023
+    f324568ba2fc3c946be44aec43e4358d: -4.560346
+    97ab21bc0bb4fc14c996ae7ed39b7ca3: 0.6434587
   m_TransitionOverrides: {}
